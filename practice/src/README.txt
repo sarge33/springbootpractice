@@ -8,3 +8,5 @@
 ### LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
 ### LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
 
+Object: synchronized(object) - object.wait() object.notify() object.notifyAll()
+Lock: ReentrantLock.newCondition - cond.await() cond.signal() cond.signalAll()
