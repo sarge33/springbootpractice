@@ -1,0 +1,121 @@
+Run $> jstack pid
+eg: $> jstack 90005 > jstack.txt
+
+Save the following output 
+
+####################################################################################################
+
+2019-12-03 11:40:40
+Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.161-b12 mixed mode):
+
+"Attach Listener" #12 daemon prio=9 os_prio=31 tid=0x00007fcb8c011800 nid=0x1307 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Thread-1" #11 prio=5 os_prio=31 tid=0x00007fcb8b810000 nid=0x5803 waiting for monitor entry [0x000070000730d000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at DeadLockExample.lambda$main$0(DeadLockExample.java:42)
+	- waiting to lock <0x000000076ab845d0> (a java.lang.Object)
+	- locked <0x000000076ab845e0> (a java.lang.Object)
+	at DeadLockExample$$Lambda$1/303563356.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:748)
+
+"Thread-0" #10 prio=5 os_prio=31 tid=0x00007fcb8904d000 nid=0x5603 waiting for monitor entry [0x000070000720a000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at DeadLockExample$1.run(DeadLockExample.java:20)
+	- waiting to lock <0x000000076ab845e0> (a java.lang.Object)
+	- locked <0x000000076ab845d0> (a java.lang.Object)
+	at java.lang.Thread.run(Thread.java:748)
+
+"Service Thread" #9 daemon prio=9 os_prio=31 tid=0x00007fcb89042000 nid=0x5203 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C1 CompilerThread3" #8 daemon prio=9 os_prio=31 tid=0x00007fcb8c000000 nid=0x5003 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread2" #7 daemon prio=9 os_prio=31 tid=0x00007fcb8a027800 nid=0x4e03 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread1" #6 daemon prio=9 os_prio=31 tid=0x00007fcb8900b000 nid=0x4c03 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread0" #5 daemon prio=9 os_prio=31 tid=0x00007fcb8b04d800 nid=0x4a03 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Signal Dispatcher" #4 daemon prio=9 os_prio=31 tid=0x00007fcb8a000800 nid=0x4803 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Finalizer" #3 daemon prio=8 os_prio=31 tid=0x00007fcb8b027800 nid=0x3903 in Object.wait() [0x00007000069f2000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x000000076ab08ec0> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+	- locked <0x000000076ab08ec0> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:164)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+"Reference Handler" #2 daemon prio=10 os_prio=31 tid=0x00007fcb8b025000 nid=0x3703 in Object.wait() [0x00007000068ef000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x000000076ab06b68> (a java.lang.ref.Reference$Lock)
+	at java.lang.Object.wait(Object.java:502)
+	at java.lang.ref.Reference.tryHandlePending(Reference.java:191)
+	- locked <0x000000076ab06b68> (a java.lang.ref.Reference$Lock)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
+
+"main" #1 prio=5 os_prio=31 tid=0x00007fcb89803000 nid=0x1c03 in Object.wait() [0x0000700005ed1000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x000000076ab84770> (a java.lang.Thread)
+	at java.lang.Thread.join(Thread.java:1252)
+	- locked <0x000000076ab84770> (a java.lang.Thread)
+	at java.lang.Thread.join(Thread.java:1326)
+	at DeadLockExample.main(DeadLockExample.java:61)
+
+"VM Thread" os_prio=31 tid=0x00007fcb8b020000 nid=0x3503 runnable 
+
+"GC task thread#0 (ParallelGC)" os_prio=31 tid=0x00007fcb8980e800 nid=0x2503 runnable 
+
+"GC task thread#1 (ParallelGC)" os_prio=31 tid=0x00007fcb8980f800 nid=0x2703 runnable 
+
+"GC task thread#2 (ParallelGC)" os_prio=31 tid=0x00007fcb89003800 nid=0x2903 runnable 
+
+"GC task thread#3 (ParallelGC)" os_prio=31 tid=0x00007fcb8b000000 nid=0x2b03 runnable 
+
+"GC task thread#4 (ParallelGC)" os_prio=31 tid=0x00007fcb8a001800 nid=0x2d03 runnable 
+
+"GC task thread#5 (ParallelGC)" os_prio=31 tid=0x00007fcb89810000 nid=0x2f03 runnable 
+
+"GC task thread#6 (ParallelGC)" os_prio=31 tid=0x00007fcb89810800 nid=0x3103 runnable 
+
+"GC task thread#7 (ParallelGC)" os_prio=31 tid=0x00007fcb8a002000 nid=0x3303 runnable 
+
+"VM Periodic Task Thread" os_prio=31 tid=0x00007fcb8a033800 nid=0x5403 waiting on condition 
+
+JNI global references: 308
+
+
+Found one Java-level deadlock:
+=============================
+"Thread-1":
+  waiting to lock monitor 0x00007fcb89816758 (object 0x000000076ab845d0, a java.lang.Object),
+  which is held by "Thread-0"
+"Thread-0":
+  waiting to lock monitor 0x00007fcb898166a8 (object 0x000000076ab845e0, a java.lang.Object),
+  which is held by "Thread-1"
+
+Java stack information for the threads listed above:
+===================================================
+"Thread-1":
+	at DeadLockExample.lambda$main$0(DeadLockExample.java:42)
+	- waiting to lock <0x000000076ab845d0> (a java.lang.Object)
+	- locked <0x000000076ab845e0> (a java.lang.Object)
+	at DeadLockExample$$Lambda$1/303563356.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:748)
+"Thread-0":
+	at DeadLockExample$1.run(DeadLockExample.java:20)
+	- waiting to lock <0x000000076ab845e0> (a java.lang.Object)
+	- locked <0x000000076ab845d0> (a java.lang.Object)
+	at java.lang.Thread.run(Thread.java:748)
+
+Found 1 deadlock.
+
